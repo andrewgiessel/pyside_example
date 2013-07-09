@@ -45,30 +45,30 @@ class simpleMainWindow(object):
     def buttonPressed(self):
         print 'PRESSED'
         self.pushButton.setText('stop it')
-
 def runSimple():
-
-    global app
     try:
         app = QtGui.QApplication(sys.argv)
     except RuntimeError:
-        pass
+        app = QtCore.QCoreApplication.instance()
 
     MainWindow = QtGui.QMainWindow()
-    gui = simpleMainWindow()
+    gui = Ui_MainWindow()
     gui.setupUi(MainWindow)
     MainWindow.show()
     MainWindow.raise_()
-    
+
     app.exec_()
 
 if __name__ == "__main__":
-    app = QtGui.QApplication(sys.argv)
+    try:
+        app = QtGui.QApplication(sys.argv)
+    except RuntimeError:
+        app = QtCore.QCoreApplication.instance()
 
     MainWindow = QtGui.QMainWindow()
-    gui = simpleMainWindow()
+    gui = Ui_MainWindow()
     gui.setupUi(MainWindow)
     MainWindow.show()
     MainWindow.raise_()
-    
+
     app.exec_()
