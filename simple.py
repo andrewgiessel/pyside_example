@@ -45,6 +45,7 @@ class simpleMainWindow(object):
     def buttonPressed(self):
         print 'PRESSED'
         self.pushButton.setText('stop it')
+
 def runSimple():
     try:
         app = QtGui.QApplication(sys.argv)
@@ -52,7 +53,7 @@ def runSimple():
         app = QtCore.QCoreApplication.instance()
 
     MainWindow = QtGui.QMainWindow()
-    gui = Ui_MainWindow()
+    gui = simpleMainWindow()
     gui.setupUi(MainWindow)
     MainWindow.show()
     MainWindow.raise_()
@@ -66,7 +67,7 @@ if __name__ == "__main__":
         app = QtCore.QCoreApplication.instance()
 
     MainWindow = QtGui.QMainWindow()
-    gui = Ui_MainWindow()
+    gui = simpleMainWindow()
     gui.setupUi(MainWindow)
     MainWindow.show()
     MainWindow.raise_()
